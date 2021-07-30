@@ -9,11 +9,10 @@ import * as data from 'src/assets/data.json';
 })
 export class ProductService {
 
-  // constructor(private http: HttpClient) { }
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getProducts() {
-    return (data.default as unknown) as Product[];
-    // return this.http.get("src/assets/data.json");
+  getProducts(): Observable<Product[]>{
+    // return (data.default as unknown) as Product[];
+    return this.http.get<Product[]>("assets/data.json");
   }
 }
