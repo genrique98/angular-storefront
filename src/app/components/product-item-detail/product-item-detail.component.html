@@ -1,8 +1,14 @@
 <div class="detail-container" >
-    <h3>{{ currentProduct.name }}</h3>
-    <p>{{ product.description }}</p>
-    <p>${{ product.price }}</p>
-    <img src={{product.url}}/>
-    <select class="select-input"></select>
-    <p class="back-link">Back to product list</p>
+    <img src={{product.url}} class="detail-item"/>
+
+    <div class="description">
+        <h2>{{ product.name }}</h2>
+        <p>${{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <select class="select-input" >
+            <option *ngFor="let option of options" value={{option}}>{{option}}</option>
+        </select>
+        <button (click)="addToCart(product, 1)">Add to cart</button>
+        <a routerLink="/" class="back-link"> Back to product list</a>
+    </div>
 </div>
