@@ -4,6 +4,7 @@
   padding: 20px;
   margin: 6px 6px;        
   border: 1px solid #33B5E5;
+  cursor: pointer;
 } 
   
 .product-container {
@@ -18,4 +19,5 @@
 .select-input {
   width: 108px; 
   margin-bottom: 8px;
+  border-color: #33B5E5;
 }

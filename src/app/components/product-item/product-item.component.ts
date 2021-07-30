@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/Product';
+import { CartService } from 'src/app/services/cart/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -8,40 +9,29 @@ import { Product } from 'src/app/models/Product';
 })
 export class ProductItemComponent implements OnInit {
   
-  @Input() product: Product;
-  currentProduct: Product;
+  @Input() product: Product = new Product();
+  options: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  selectedQuantity: number = this.options[0]
   // @Output() addToCart: EventEmitter<Product> = new EventEmitter;
-  @Output() productChange: EventEmitter<Product> = new EventEmitter;
+  @Output() changeQ: EventEmitter<number> = new EventEmitter;
   
-  constructor() {
-    this.product = {
-      id: 0,
-      name: '',
-      price: 1,
-      url: '',
-      description: ''
-    }
-    this.currentProduct = this.product;
+  constructor(private cartService: CartService) {
   }
 
   ngOnInit(): void {
-    // this.currentProduct = {
-    //   id: 0,
-    //   name: 'jjj',
-    //   price: 1,
-    //   url: '',
-    //   description: ''
-    // }
   }
 
-  ngOnChanges(){
-
+  addToCart(product: Product, quantity: number){
+    this.cartService.addProductToCart(product, quantity);
+    
   }
 
-  setCurrentProduct(currentProduct: Product): void {
-    this.currentProduct = currentProduct;
-    // alert(this.currentProduct.id)
-    this.productChange.emit(this.currentProduct);
+  updateQuantity(number: number): void {
+    this.selectedQuantity = number
+    this.changeQ.emit(this.selectedQuantity)
   }
+
+ 
+
 
 }
