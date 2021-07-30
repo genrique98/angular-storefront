@@ -1,1 +1,37 @@
-<p>cart works!</p>
+<ng-container *ngIf="!cart.length">
+    <h1 class="empty-cart-message">Cart is empty!</h1>
+</ng-container>
+
+
+<ng-container *ngIf="cart.length" class="cart-panel">
+    <form #form="ngForm" (ngSubmit)="onSubmit()" class="form-margin">
+        <p>Full name</p>
+        <input type="text" name="name" required minlength="3" placeholder="(minimum 3 characters)" [(ngModel)]="name">
+        <p>Address</p>
+        <input type="address" name="address" required minlength="6" placeholder="(minimum 6 characters)" [(ngModel)]="address">
+        <p>Credit Card Number</p>
+        <input type="card" name="card" required minlength="18" maxlength="18" placeholder="(18-digit number)" [(ngModel)]="card">
+        <button type="submit" [disabled]="form.invalid">Submit</button>
+    
+        <!-- <div *ngIf="form.invalid && form.dirty">
+            <div *ngIf="form.errors.required">
+              Please provide a name.
+            </div>
+            <div *ngIf="form.errors.minlength">
+              Your name must contain at least 3 characters.
+            </div>
+        </div> -->
+    </form>
+    <div class="cart-container">
+        <div *ngFor="let item of cart" class="cart-item">
+            <img src={{item.product.url}} />
+            <div class="cart-item-details">
+                <h3>{{ item.product.name }}</h3>
+                <p>${{ item.product.price }}</p>
+                <p>Amount: {{item.quantity}}</p>
+            </div>
+        </div>
+        <h2>${{total}}</h2>
+    </div>
+
+</ng-container>
