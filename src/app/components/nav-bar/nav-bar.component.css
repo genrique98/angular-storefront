@@ -1,0 +1,22 @@
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+    background: #33B5E5;
+    padding: 20px 200px 20px 200px;
+}
+  
+a {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.badge {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+}
