@@ -14,10 +14,7 @@ export class CartComponent implements OnInit {
 
   total: number = 0;
   cart: Cart[] = [];
-
-  name: string = ''
-  address: string = ''
-  card: number = 0
+  order: Order = new Order();
 
   constructor(private cartService: CartService, private route: Router, private orderService: OrderService) { }
 
@@ -26,15 +23,12 @@ export class CartComponent implements OnInit {
     this.cart = this.cartService.getProductsInCart();
   }
 
-  onSubmit(): void {
-    let order: Order = {
-      name: this.name,
-      address: this.address,
-      card: this.card
-    }
-    alert(order.name)
-    this.orderService.updateOrder(order)
+  updateTotal(_arg: Event): void {
+    this.total = this.cartService.getTotalCost();
+  }
 
+  onSubmit(): void {
+    this.orderService.updateOrder(this.order)
     this.route.navigate(['/confirmation'])
   }
 }

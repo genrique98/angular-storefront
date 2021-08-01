@@ -5,10 +5,12 @@
         <h2>{{ product.name }}</h2>
         <p>${{ product.price }}</p>
         <p>{{ product.description }}</p>
-        <select class="select-input" >
-            <option *ngFor="let option of options" value={{option}}>{{option}}</option>
+        <select class="select-input" [(ngModel)]="selectedQuantity">
+            <option *ngFor="let option of options" value={{option}}>{{ option }}</option>
         </select>
-        <button (click)="addToCart(product, 1)">Add to cart</button>
-        <a routerLink="/" class="back-link"> Back to product list</a>
+        <br/>
+        <button (click)="addToCart(product, selectedQuantity)">Add to cart</button>
+        <br/>
+        <a routerLink="/" class="back-link">&larr; Back to product list</a>
     </div>
 </div>

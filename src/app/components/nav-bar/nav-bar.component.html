@@ -1,6 +1,11 @@
 <div class="navigation">
-    <a>MyStore</a>
-    <a routerLink="/">Product List</a>
-    <a routerLink="/cart">Cart</a>
-    <span class="badge">{{ badgeNumber }}</span>
+    <h2>General Store</h2>
+    <div class="links">
+        <a class="list" routerLink="/">Product List</a>
+        <div class="cart">
+            <a routerLink="/cart">Cart</a>
+            <!-- <span class="badge" [(ngModel)]="badgeNumber" (ngModelChange)="update($event)">{{ badgeNumber }}</span> -->
+            <span class="badge" >{{ badgeNumber }}</span>
+        </div>
+    </div>
 </div>

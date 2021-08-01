@@ -9,4 +9,5 @@ import { Product } from './models/Product';
 export class AppComponent {
   title = 'angular-storefront-app';
   
+  number: number = 0
 }

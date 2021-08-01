@@ -11,11 +11,9 @@ import { CartService } from 'src/app/services/cart/cart.service';
 })
 export class ProductItemDetailComponent implements OnInit {
 
-  // @Input() product: Product;
-  // @Output() addToCart: EventEmitter<Product> = new EventEmitter;
-
   product: Product = new Product();
   options: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  selectedQuantity: number = this.options[0]
 
   constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) {
   }
@@ -31,6 +29,6 @@ export class ProductItemDetailComponent implements OnInit {
 
   addToCart(product: Product, quantity: number){
     this.cartService.addProductToCart(product, quantity);
-    
+    alert(`${quantity} ${product.name}(s) added to cart!`)
   }
 }

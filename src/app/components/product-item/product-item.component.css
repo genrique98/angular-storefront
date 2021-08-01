@@ -17,7 +17,15 @@
 }
   
 .select-input {
-  width: 108px; 
   margin-bottom: 8px;
   border-color: #33B5E5;
+  min-width: 100px;
+}
+
+button {
+  background-color: #33e5bc;
+  color: white;
+  border-radius: 5px;
+  border-color: #33e5bc;
+  min-width: 100px;
 }

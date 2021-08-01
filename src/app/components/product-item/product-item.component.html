@@ -2,8 +2,8 @@
     <img class="product-image" src={{product.url}} routerLink="product/{{product.id}}" />
     <h3>{{ product.name }}</h3>
     <p>${{ product.price }}</p>
-    <select class="select-input" id="option" (change)="updateQuantity(1)">
-        <option *ngFor="let option of options" value={{option}}>{{option}}</option>
+    <select class="select-input" id="option" [(ngModel)]="selectedQuantity">
+        <option *ngFor="let option of options" value={{option}}>{{ option }}</option>
     </select>
     <button (click)="addToCart(product, selectedQuantity)">Add to cart</button>
 </div>

@@ -18,3 +18,10 @@
 .confirmation-item {
   margin-bottom: 30px;
 }
+
+.back-link {
+  background-color: #33e5bc;
+  color: white;
+  border-radius: 5px;
+  border-color: #33e5bc;
+}
