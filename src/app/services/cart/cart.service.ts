@@ -24,6 +24,10 @@ export class CartService {
     } 
   }
 
+  removeProduct(product: Product): void {
+    delete this.cart[product.id - 1]
+  }
+
   getTotalCost(): number {
     let total: number = 0;
     this.cart.forEach(item => {
@@ -40,6 +44,10 @@ export class CartService {
     })
 
     return total;
+  }
+
+  emptyCart(): void {
+    this.cart = []
   }
 
    

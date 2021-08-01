@@ -17,10 +17,4 @@ run: `npm install` and `ng serve` and Navigate to `http://localhost:4200/`
 - Data is returned as an Observable using the rxjs library.
 - Individual Product route (Dynamic Routing)
 - Services are used for handling and passing data (Cart, Product, and Order models) to Components. Components are used for structuring data only. 
-
-# Hierarchy of Components:
-
-NavBar
-        ProductList     Product-Item-Detail     Cart    Confirmation
-            |
-        Product-Item
+- Template-driven forms.
